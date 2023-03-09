@@ -7,5 +7,9 @@
     "test": "jest"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.5.0",
+    "xxhashjs": "^0.2.2"
+  }
 }
