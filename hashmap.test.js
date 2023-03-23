@@ -1,3 +1,5 @@
+const { describe } = require("node:test");
+
 class HashMap {
   constructor(max) {
     this.data = [];
@@ -58,12 +60,17 @@ class HashMap {
   }
 }
 
-const map = new HashMap(20);
-map.add("Przemek", 21);
-map.add("Przek", 21);
-map.add("Ania", 20);
-map.add("Ania", 22);
-console.log(map.find("Przek"));
-console.log(map.find("Ania"));
-console.log(map.remove("Przek"));
-console.log(JSON.stringify(map));
+describe("hashmap", () => {
+  const map = new HashMap(2);
+  map.add("Przemek", 21);
+  map.add("Przek", 12);
+  map.add("Ania", 20);
+  map.add("Ania", 22);
+  test("finding", () => {
+    expect(map.find("Przek")).toBe(12);
+    expect(map.find("Ania")).toBe(22);
+  });
+  test("deleting", () => {
+    expect(map.remove("Przek")).toBe(12);
+  });
+});
